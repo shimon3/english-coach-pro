@@ -49,10 +49,9 @@ export function ScenarioCard({ scenario, isCompleted = false, categoryMeta }: Sc
       </p>
 
       {/* Roles */}
-      <div className="mt-3 mb-3 rounded-lg bg-white/4 border border-border/30 px-3 py-2 text-xs text-muted-foreground">
-        <span className="font-medium text-foreground">You:</span> {scenario.userRole}
-        <span className="mx-1.5 text-border">·</span>
-        <span className="font-medium text-foreground">AI:</span> {scenario.aiName} ({scenario.aiRole})
+      <div className="mt-3 mb-3 rounded-lg bg-white/[0.04] border border-border/30 px-3 py-2 text-xs text-muted-foreground space-y-0.5">
+        <p className="truncate"><span className="font-medium text-foreground">You:</span> {scenario.userRole}</p>
+        <p className="truncate"><span className="font-medium text-foreground">AI:</span> {scenario.aiName} ({scenario.aiRole})</p>
       </div>
 
       {/* Meta row */}
