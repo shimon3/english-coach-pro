@@ -96,7 +96,7 @@ export function ChatInput({
         </button>
       </div>
 
-      <p className="pb-2 text-center text-[10px] text-muted-foreground/30">
+      <p className="hidden md:block pb-2 text-center text-[10px] text-muted-foreground/30">
         Enter to send · Shift+Enter for new line
       </p>
     </div>

@@ -20,6 +20,11 @@ export function TopBar() {
   const segment = "/" + (pathname.split("/")[1] ?? "")
   const title = pageTitles[segment] ?? "English Coach Pro"
 
+  // The conversation session has its own full header — hide TopBar there
+  const isConversationSession = pathname.startsWith("/conversations/") && pathname.split("/").length > 2
+
+  if (isConversationSession) return null
+
   return (
     <header className="fixed top-0 left-0 right-0 z-40 md:hidden">
       <div className="flex items-center justify-between px-4 py-3 bg-card/95 backdrop-blur-md border-b border-border/60">

@@ -218,7 +218,7 @@ function SessionView({ scenarioId }: { scenarioId: string }) {
 
       {/* ── Fixed Input ───────────────────────────────────────────── */}
       {!isComplete && (
-        <div className="shrink-0 pb-16 md:pb-0">
+        <div className="shrink-0 pb-24 md:pb-0">
           <ChatInput
             value={inputValue}
             onChange={setInputValue}

@@ -383,7 +383,7 @@ export default function VocabularyPage() {
       </div>
 
       {/* ── Sticky CTA bar ─────────────────────────────────────────── */}
-      <div className="fixed bottom-16 md:bottom-0 left-0 right-0 z-30 px-4 pb-4 pt-2 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none md:left-60">
+      <div className="fixed bottom-20 md:bottom-0 left-0 right-0 z-30 px-4 pb-4 pt-2 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none md:left-60">
         <Link
           href={flashcardUrl}
           className="pointer-events-auto flex items-center justify-center gap-2 w-full max-w-md mx-auto rounded-2xl bg-brand-500 py-3.5 text-sm font-bold text-white shadow-xl shadow-brand-500/25 hover:bg-brand-600 transition-all active:scale-[0.98]"
