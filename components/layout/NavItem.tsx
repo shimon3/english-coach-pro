@@ -10,12 +10,14 @@ interface NavItemProps {
   href: string
   isActive: boolean
   collapsed?: boolean
+  onClick?: () => void
 }
 
-export function NavItem({ icon: Icon, label, href, isActive, collapsed }: NavItemProps) {
+export function NavItem({ icon: Icon, label, href, isActive, collapsed, onClick }: NavItemProps) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={cn(
         "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-150",
         isActive

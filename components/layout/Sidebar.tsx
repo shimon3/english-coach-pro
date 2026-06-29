@@ -3,25 +3,28 @@
 import { usePathname } from "next/navigation"
 import {
   LayoutDashboard, BookOpen, MessageCircle, Mic,
-  Headphones, GraduationCap, Monitor, User, Zap,
+  Headphones, GraduationCap, Monitor, User, Zap, Globe,
 } from "lucide-react"
 import { NavItem } from "./NavItem"
-import { TrackSwitcher } from "./TrackSwitcher"
-import { cn } from "@/lib/utils"
+import { useTrack } from "@/lib/track-context"
 
-const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
-  { icon: BookOpen, label: "Vocabulary", href: "/vocabulary" },
-  { icon: MessageCircle, label: "AI Conversations", href: "/conversations" },
-  { icon: Mic, label: "Pronunciation", href: "/pronunciation" },
-  { icon: Headphones, label: "Listening", href: "/listening" },
-  { icon: GraduationCap, label: "Grammar", href: "/grammar" },
-  { icon: Monitor, label: "IT English", href: "/it-english" },
-  { icon: User, label: "Profile", href: "/profile" },
+const generalNavItems = [
+  { icon: BookOpen,      label: "Vocabulary",      href: "/vocabulary" },
+  { icon: MessageCircle, label: "Conversations",    href: "/conversations" },
+  { icon: GraduationCap, label: "Grammar",          href: "/grammar" },
+  { icon: Mic,           label: "Pronunciation",    href: "/pronunciation" },
+  { icon: Headphones,    label: "Listening",        href: "/listening" },
+]
+
+const itNavItems = [
+  { icon: BookOpen,      label: "Vocabulary",   href: "/vocabulary" },
+  { icon: MessageCircle, label: "Conversations", href: "/conversations" },
+  { icon: GraduationCap, label: "Grammar",       href: "/grammar" },
 ]
 
 export function Sidebar() {
   const pathname = usePathname()
+  const { track, setTrack } = useTrack()
 
   return (
     <aside className="hidden md:flex fixed left-0 top-0 bottom-0 w-60 flex-col bg-sidebar border-r border-sidebar-border z-30">
@@ -36,25 +39,67 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Track switcher */}
-      <div className="px-3 py-3 border-b border-sidebar-border/50">
-        <TrackSwitcher />
-      </div>
-
       {/* Nav */}
-      <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
-        <p className="px-3 mb-2 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/60">
-          Learn
-        </p>
-        {navItems.map((item) => (
-          <NavItem
-            key={item.href}
-            icon={item.icon}
-            label={item.label}
-            href={item.href}
-            isActive={pathname.startsWith(item.href)}
-          />
-        ))}
+      <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-5">
+        {/* Dashboard */}
+        <NavItem
+          icon={LayoutDashboard}
+          label="Dashboard"
+          href="/dashboard"
+          isActive={pathname.startsWith("/dashboard")}
+        />
+
+        {/* General English */}
+        <div>
+          <div className="flex items-center gap-1.5 px-3 mb-1.5">
+            <Globe className="h-3 w-3 text-sky-400/80" />
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-sky-400/80">
+              General English
+            </p>
+          </div>
+          <div className="space-y-0.5">
+            {generalNavItems.map((item) => (
+              <NavItem
+                key={`general-${item.href}`}
+                icon={item.icon}
+                label={item.label}
+                href={item.href}
+                isActive={pathname.startsWith(item.href) && track === "general"}
+                onClick={() => setTrack("general")}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* IT English */}
+        <div>
+          <div className="flex items-center gap-1.5 px-3 mb-1.5">
+            <Monitor className="h-3 w-3 text-emerald-400/80" />
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-emerald-400/80">
+              IT English
+            </p>
+          </div>
+          <div className="space-y-0.5">
+            {itNavItems.map((item) => (
+              <NavItem
+                key={`it-${item.href}`}
+                icon={item.icon}
+                label={item.label}
+                href={item.href}
+                isActive={pathname.startsWith(item.href) && track === "it"}
+                onClick={() => setTrack("it")}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Profile */}
+        <NavItem
+          icon={User}
+          label="Profile"
+          href="/profile"
+          isActive={pathname.startsWith("/profile")}
+        />
       </nav>
 
       {/* Footer */}
