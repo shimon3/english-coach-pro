@@ -216,11 +216,11 @@ export default function VocabularyPage() {
 
   return (
     <>
-      <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-32 md:max-w-5xl">
+      <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-32 md:max-w-5xl overflow-x-hidden">
 
         {/* ── Header ─────────────────────────────────────────────── */}
         <div className="flex items-start justify-between gap-3">
-          <div>
+          <div className="min-w-0">
             <h1 className="text-2xl font-bold text-foreground">Vocabulary</h1>
             <p className="text-sm text-muted-foreground mt-0.5">
               {totalCount} words · <span className="text-amber-400 font-medium">{dueCount} due for review</span>

@@ -31,7 +31,7 @@ export default function GrammarPage() {
     .reduce((s, l) => s + l.xpReward, 0)
 
   return (
-    <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-10 md:max-w-5xl">
+    <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-10 md:max-w-5xl overflow-x-hidden">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Grammar</h1>
         <p className="text-sm text-muted-foreground mt-1">
@@ -53,7 +53,7 @@ export default function GrammarPage() {
               : <Globe className="h-4 w-4 text-sky-400" />
             }
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold text-foreground mb-0.5">
               {track === "it" ? "Grammar for IT professionals" : "Everyday English grammar"}
             </p>

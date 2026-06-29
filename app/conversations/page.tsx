@@ -50,7 +50,7 @@ export default function ConversationsPage() {
     : { title: "Practice everyday English conversations", desc: "Scripted role-plays covering daily life, travel, health, work and social situations." }
 
   return (
-    <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-10 md:max-w-5xl">
+    <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-10 md:max-w-5xl overflow-x-hidden">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-foreground">AI Conversations</h1>
@@ -74,7 +74,7 @@ export default function ConversationsPage() {
               : <Globe className="h-4 w-4 text-sky-400" />
             }
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold text-foreground mb-0.5">{introText.title}</p>
             <p className="text-xs text-muted-foreground leading-relaxed">{introText.desc}</p>
           </div>
