@@ -6,6 +6,7 @@ import { getLessonById, GRAMMAR_CATEGORY_META } from "@/data/grammar"
 import { markLessonComplete, isLessonComplete } from "@/lib/hooks/useCompletedItems"
 import { markActiveToday } from "@/lib/hooks/useStreak"
 import { useXPSync } from "@/lib/hooks/useXPSync"
+import { useTrack } from "@/lib/track-context"
 import { LevelBadge } from "@/components/shared/LevelBadge"
 import { cn } from "@/lib/utils"
 import {
@@ -16,6 +17,7 @@ import {
 export default function GrammarLessonPage() {
   const params = useParams()
   const router = useRouter()
+  const { track } = useTrack()
   const lessonId = params.lessonId as string
   const lesson = getLessonById(lessonId)
 
@@ -98,9 +100,13 @@ export default function GrammarLessonPage() {
       <div className="rounded-2xl border border-border/60 bg-card/60 p-4">
         <div className="flex items-center gap-2 mb-2">
           <BookOpen className="h-4 w-4 text-brand-400" />
-          <p className="text-sm font-semibold text-foreground">Why this matters in IT</p>
+          <p className="text-sm font-semibold text-foreground">
+            {track === "it" ? "Why this matters in IT" : "Why this matters"}
+          </p>
         </div>
-        <p className="text-sm text-muted-foreground leading-relaxed">{lesson.intro}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {track === "it" ? lesson.intro : lesson.generalIntro}
+        </p>
       </div>
 
       {/* Rules */}
@@ -124,10 +130,12 @@ export default function GrammarLessonPage() {
         ))}
       </div>
 
-      {/* IT Examples */}
+      {/* Examples — IT or General based on track */}
       <div className="space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">IT examples</p>
-        {lesson.itExamples.map((ex, i) => (
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
+          {track === "it" ? "IT examples" : "Everyday examples"}
+        </p>
+        {(track === "it" ? lesson.itExamples : lesson.generalExamples).map((ex, i) => (
           <div key={i} className="rounded-2xl border border-border/60 bg-card/60 p-4">
             <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50 mb-1.5">{ex.label}</p>
             <p className="text-sm text-foreground leading-relaxed">

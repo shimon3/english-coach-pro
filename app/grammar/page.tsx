@@ -5,13 +5,15 @@ import Link from "next/link"
 import { grammarLessons, GRAMMAR_CATEGORY_META } from "@/data/grammar"
 import type { GrammarCategory } from "@/data/grammar"
 import { readCompletedLessons } from "@/lib/hooks/useCompletedItems"
+import { useTrack } from "@/lib/track-context"
 import { LevelBadge } from "@/components/shared/LevelBadge"
 import { cn } from "@/lib/utils"
-import { BookOpen, CheckCircle2, Clock, Zap } from "lucide-react"
+import { BookOpen, CheckCircle2, Clock, Zap, Globe, Monitor } from "lucide-react"
 
 const ALL_CATEGORIES = Object.keys(GRAMMAR_CATEGORY_META) as GrammarCategory[]
 
 export default function GrammarPage() {
+  const { track } = useTrack()
   const [activeCategory, setActiveCategory] = useState<GrammarCategory | "all">("all")
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set())
 
@@ -37,15 +39,29 @@ export default function GrammarPage() {
         </p>
       </div>
 
-      <div className="rounded-2xl border border-brand-500/20 bg-brand-500/5 p-4">
+      <div className={cn(
+        "rounded-2xl border p-4",
+        track === "it" ? "border-brand-500/20 bg-brand-500/5" : "border-sky-500/20 bg-sky-500/5"
+      )}>
         <div className="flex items-start gap-3">
-          <div className="h-9 w-9 rounded-xl bg-brand-500/15 flex items-center justify-center shrink-0">
-            <BookOpen className="h-4 w-4 text-brand-400" />
+          <div className={cn(
+            "h-9 w-9 rounded-xl flex items-center justify-center shrink-0",
+            track === "it" ? "bg-brand-500/15" : "bg-sky-500/15"
+          )}>
+            {track === "it"
+              ? <Monitor className="h-4 w-4 text-brand-400" />
+              : <Globe className="h-4 w-4 text-sky-400" />
+            }
           </div>
           <div>
-            <p className="text-sm font-semibold text-foreground mb-0.5">Grammar for IT professionals</p>
+            <p className="text-sm font-semibold text-foreground mb-0.5">
+              {track === "it" ? "Grammar for IT professionals" : "Everyday English grammar"}
+            </p>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Each lesson focuses on a grammar structure used daily in IT support, incident reports, and technical communication — with real sysadmin examples.
+              {track === "it"
+                ? "Each lesson focuses on a grammar structure used daily in IT support, incident reports, and technical communication — with real sysadmin examples."
+                : "Each lesson covers a key grammar structure with everyday examples — travel, social situations, work, and more. Switch to IT English mode to see IT-specific examples."
+              }
             </p>
           </div>
         </div>
@@ -128,7 +144,7 @@ export default function GrammarPage() {
                       <Zap className="h-3 w-3" />+{lesson.xpReward} XP
                     </span>
                     <span className="text-[10px] text-muted-foreground/70">
-                      {lesson.rules.length} rules · {lesson.itExamples.length} IT examples
+                      {lesson.rules.length} rules · {track === "it" ? `${lesson.itExamples.length} IT examples` : `${lesson.generalExamples.length} examples`}
                     </span>
                   </div>
                 </div>
