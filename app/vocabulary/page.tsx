@@ -216,7 +216,7 @@ export default function VocabularyPage() {
 
   return (
     <>
-      <div className="px-4 py-6 md:px-8 md:py-8 max-w-4xl mx-auto space-y-5 pb-32">
+      <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-32 md:max-w-5xl">
 
         {/* ── Header ─────────────────────────────────────────────── */}
         <div className="flex items-start justify-between gap-3">

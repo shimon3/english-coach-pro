@@ -50,7 +50,7 @@ export default function ConversationsPage() {
     : { title: "Practice everyday English conversations", desc: "Scripted role-plays covering daily life, travel, health, work and social situations." }
 
   return (
-    <div className="px-4 py-6 md:px-8 md:py-8 max-w-4xl mx-auto space-y-5 pb-10">
+    <div className="px-4 py-6 md:px-8 md:py-8 max-w-2xl mx-auto space-y-5 pb-10 md:max-w-5xl">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-foreground">AI Conversations</h1>

@@ -21,7 +21,7 @@ export function ScenarioCard({ scenario, isCompleted = false, categoryMeta }: Sc
     <Link
       href={`/conversations/${scenario.id}`}
       className={cn(
-        "group relative flex flex-col rounded-2xl border bg-card/60 p-5 transition-all duration-200 hover:border-brand-500/40 hover:bg-brand-500/5 active:scale-[0.98]",
+        "group relative flex flex-col min-w-0 overflow-hidden rounded-2xl border bg-card/60 p-5 transition-all duration-200 hover:border-brand-500/40 hover:bg-brand-500/5 active:scale-[0.98]",
         isCompleted ? "border-emerald-500/30" : "border-border/50"
       )}
     >
