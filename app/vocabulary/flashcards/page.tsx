@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { Suspense, useState, useEffect, useCallback } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { vocabulary } from "@/data/vocabulary"
 import type { WordCategoryIT, VocabularyWord } from "@/data/vocabulary"
@@ -14,6 +14,20 @@ import { cn } from "@/lib/utils"
 import { useXPSync } from "@/lib/hooks/useXPSync"
 
 export default function FlashcardsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="rounded-2xl border border-border/40 bg-card/60 p-8 text-center">
+          <p className="text-sm text-muted-foreground">Loading cards…</p>
+        </div>
+      </div>
+    }>
+      <FlashcardsContent />
+    </Suspense>
+  )
+}
+
+function FlashcardsContent() {
   const params  = useSearchParams()
   const router  = useRouter()
 

@@ -164,7 +164,7 @@ export default function ConversationsPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {filtered.map((scenario) => (
-            <ScenarioCard key={scenario.id} scenario={scenario as ConversationScenario} isCompleted={completedIds.has(scenario.id)} />
+            <ScenarioCard key={scenario.id} scenario={scenario as ConversationScenario} isCompleted={completedIds.has(scenario.id)} categoryMeta={activeCategoryMeta} />
           ))}
         </div>
       )}

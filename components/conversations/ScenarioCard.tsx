@@ -5,13 +5,17 @@ import { CATEGORY_META } from "@/data/conversations"
 import type { ConversationScenario } from "@/data/conversations"
 import { Clock, Zap, CheckCircle2, ChevronRight } from "lucide-react"
 
+type CategoryMeta = Record<string, { label: string; color: string; bg: string; border: string }>
+
 interface ScenarioCardProps {
   scenario: ConversationScenario
   isCompleted?: boolean
+  categoryMeta?: CategoryMeta
 }
 
-export function ScenarioCard({ scenario, isCompleted = false }: ScenarioCardProps) {
-  const catMeta = CATEGORY_META[scenario.category]
+export function ScenarioCard({ scenario, isCompleted = false, categoryMeta }: ScenarioCardProps) {
+  const meta = categoryMeta ?? (CATEGORY_META as CategoryMeta)
+  const catMeta = meta[scenario.category] ?? { label: scenario.category, color: "text-muted-foreground", bg: "bg-white/5", border: "border-border/30" }
 
   return (
     <Link
