@@ -82,7 +82,7 @@ export default function ConversationsPage() {
       </div>
 
       {/* Category filter */}
-      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none -mx-4 px-4">
+      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
         <button
           onClick={() => setActiveCategory("all")}
           className={cn(
