@@ -21,7 +21,7 @@ interface NavTab {
 const TABS: NavTab[] = [
   {
     icon: LayoutDashboard,
-    label: "Dashboard",
+    label: "Home",
     href: "/dashboard",
     isActive: (p) => p.startsWith("/dashboard"),
     activeClass: "text-brand-400",
@@ -38,7 +38,7 @@ const TABS: NavTab[] = [
   },
   {
     icon: Monitor,
-    label: "IT English",
+    label: "IT",
     href: "/conversations",
     track: "it",
     isActive: (p, t) => t === "it" && CONTENT_PATHS.some((c) => p.startsWith(c)),
@@ -69,8 +69,8 @@ export function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 md:hidden">
-      <div className="border-t border-border/60 bg-card/95 backdrop-blur-md px-2 pb-safe">
-        <div className="flex items-center justify-around py-2">
+      <div className="border-t border-border/60 bg-card/95 backdrop-blur-md pb-safe">
+        <div className="flex items-stretch">
           {TABS.map((tab) => {
             const isActive = tab.isActive(pathname, track)
             return (
@@ -79,12 +79,12 @@ export function BottomNav() {
                 href={tab.href}
                 onClick={() => { if (tab.track) setTrack(tab.track) }}
                 className={cn(
-                  "flex flex-col items-center gap-1 rounded-xl px-3 py-1.5 transition-all duration-150",
+                  "flex flex-1 flex-col items-center justify-center gap-0.5 py-2 transition-all duration-150",
                   isActive ? tab.activeClass : "text-muted-foreground"
                 )}
               >
-                <tab.icon className={cn("h-5 w-5", isActive && tab.glowClass)} />
-                <span className="text-[10px] font-medium">{tab.label}</span>
+                <tab.icon className={cn("h-5 w-5 shrink-0", isActive && tab.glowClass)} />
+                <span className="text-[9px] font-medium leading-none">{tab.label}</span>
               </Link>
             )
           })}
