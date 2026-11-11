@@ -53,7 +53,21 @@ public/       Static assets
 
 ## Screenshots
 
-_Add screenshots of the dashboard, a conversation and a flashcard session here._
+**Dashboard** — XP, daily goal, streak and quick access to every module.
+
+![Dashboard](public/screenshots/dashboard.png)
+
+**Conversation scenario** — practise a real support call with an AI character, with suggested replies.
+
+![Conversation scenario](public/screenshots/conversation.png)
+
+**Flashcards** — review vocabulary in short sessions.
+
+![Flashcards](public/screenshots/flashcards.png)
+
+**Grammar** — short lessons with rules and examples.
+
+![Grammar](public/screenshots/grammar.png)
 
 ## Licence
 
