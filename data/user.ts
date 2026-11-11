@@ -50,14 +50,14 @@ export interface User {
 }
 
 export const currentUser: User = {
-  id: "user_samuel",
-  name: "Samuel",
-  avatarInitials: "SM",
-  jobTitle: "System Administrator",
-  company: "IT Department",
-  country: "France",
-  countryFlag: "🇫🇷",
-  nativeLanguages: ["French", "Hebrew"],
+  id: "user_demo",
+  name: "Alex",
+  avatarInitials: "AL",
+  jobTitle: "Software Developer",
+  company: "Demo Company",
+  country: "Demo Country",
+  countryFlag: "🌍",
+  nativeLanguages: ["Spanish"],
   currentLevel: "B1",
   sublevel: 2,
   totalXP: 2840,

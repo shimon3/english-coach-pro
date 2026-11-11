@@ -59,7 +59,7 @@ Pour chaque page, exécute ce script :
 
 | Page | Contenu minimum attendu |
 |------|------------------------|
-| dashboard | "Samuel", XP ring, streak, "Continue Learning" |
+| dashboard | "Alex", XP ring, streak, "Continue Learning" |
 | vocabulary | filtres catégorie, au moins 10 word cards, bouton Flashcards |
 | flashcards | numéro de carte "1 / N" avec N > 0, bouton Flip |
 | conversations | au moins 5 scénarios listés, filtres catégorie |
@@ -68,7 +68,7 @@ Pour chaque page, exécute ce script :
 | pronunciation | message "en cours de développement", lien vers Vocabulaire |
 | listening | message "en cours de développement", lien vers Conversations |
 | it-english | message "en cours de développement", liens fonctionnels |
-| profile | nom "Samuel", barre de progression XP, achievements |
+| profile | nom "Alex", barre de progression XP, achievements |
 
 ## Rapport de sortie
 

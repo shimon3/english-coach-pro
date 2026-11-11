@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# English Coach Pro
 
-## Getting Started
+A personal English-learning web app with a focus on **work English for IT professionals**. Practice real-world scenarios (incident calls, client meetings, phishing alerts), study grammar and vocabulary, and track your progress with XP, streaks and skill scores.
 
-First, run the development server:
+Built with [Next.js](https://nextjs.org), React, TypeScript and Tailwind CSS.
+
+## Features
+
+- **Conversation scenarios** — role-play chats with an AI character (for example, managing a domain-controller outage or briefing a manager on a security investment).
+- **Grammar lessons** — short lessons with rules and examples, including IT-specific sentences.
+- **Vocabulary and flashcards** — study word lists and review them with a flashcard session.
+- **Listening and pronunciation** — practice pages with text-to-speech support in the browser.
+- **IT English module** — terminology and phrases used in technical work.
+- **Dashboard and profile** — XP, level, daily goal, weekly activity, skill radar, streaks and achievements.
+
+Progress is stored in your browser (`localStorage`). No account or server database is needed.
+
+## Getting started
+
+Requirements: Node.js 20.9 or later (required by Next.js 16).
 
 ```bash
+git clone https://github.com/shimon3/english-coach-pro.git
+cd english-coach-pro
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm run start   # run the production build
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/          Pages (dashboard, conversations, grammar, vocabulary, listening, pronunciation, profile, IT English)
+components/   Reusable UI components, grouped by feature
+data/         Lesson content, scenarios, vocabulary and the demo user profile
+lib/          Hooks (XP, streaks, skill scores) and helpers
+public/       Static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customising the content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Demo user:** edit `data/user.ts` to change the name, level, goals and starting XP.
+- **Scenarios:** edit `data/conversations.ts` to add or change role-play dialogues.
+- **Grammar and vocabulary:** edit `data/grammar.ts` and `data/vocabulary.ts`.
 
-## Deploy on Vercel
+## Screenshots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+_Add screenshots of the dashboard, a conversation and a flashcard session here._
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licence
+
+MIT — see [LICENSE](LICENSE).

@@ -650,14 +650,14 @@ const serverincident: ConversationScenario = {
   estimatedMinutes: 14,
   category: "incidents",
   context: "It is 8:15 AM. James, your IT manager, calls you urgently. The primary domain controller (DC01) has stopped responding overnight. Over 200 users cannot log into their computers or access company resources. The business is at a standstill.",
-  userRole: "Senior System Administrator",
+  userRole: "Senior Engineer",
   aiRole: "IT Manager",
   aiName: "James Wilson",
   aiAvatar: "JW",
   tags: ["domain controller", "active directory", "incident", "Kerberos", "replication", "FSMO"],
   xpReward: 120,
   script: [
-    t("si-1", "ai", "Samuel, we have a major incident. DC01 is completely unresponsive. All authentication is failing — users can't log in anywhere. I've already called our MD. What's our first move?", {
+    t("si-1", "ai", "Alex, we have a major incident. DC01 is completely unresponsive. All authentication is failing — users can't log in anywhere. I've already called our MD. What's our first move?", {
       delayMs: 1000,
       suggestedReplies: [
         "Understood. First priority is to check if DC02 is healthy and taking over. Can you SSH or RDP into the secondary DC?",
@@ -770,7 +770,7 @@ const serverincident: ConversationScenario = {
       ],
     }),
     t("si-16", "user", "We were in a good position because of the dual-DC setup and current replication. I'll send you a full diagnosis in 15 minutes and I'll have a post-incident report ready by end of day. Speak then, James."),
-    t("si-17", "ai", "Perfect. Thank you, Samuel. I'll brief the MD. Speak in 15.", { delayMs: 700 }),
+    t("si-17", "ai", "Perfect. Thank you, Alex. I'll brief the MD. Speak in 15.", { delayMs: 700 }),
   ],
 }
 
@@ -791,7 +791,7 @@ const customermeeting: ConversationScenario = {
   tags: ["meeting", "microsoft365", "migration", "presentation", "stakeholder", "cloud"],
   xpReward: 100,
   script: [
-    t("cm-1", "ai", "Good morning, Samuel. Thanks for setting this up. I've had a look at the summary you sent over. I must say, this migration sounds quite complex. Can you walk me through the key benefits before we talk about risks?", {
+    t("cm-1", "ai", "Good morning, Alex. Thanks for setting this up. I've had a look at the summary you sent over. I must say, this migration sounds quite complex. Can you walk me through the key benefits before we talk about risks?", {
       delayMs: 1100,
       suggestedReplies: [
         "Good morning, Emma! Absolutely. The main benefits are reduced infrastructure costs, improved collaboration, and enhanced security.",
@@ -904,7 +904,7 @@ const customermeeting: ConversationScenario = {
       ],
     }),
     t("cm-16", "user", "Absolutely. I'll prepare a one-page executive summary and a three-year cost comparison and send them over by Thursday morning. Is there anything specific you'd like me to highlight for the board?"),
-    t("cm-17", "ai", "Yes — please emphasise the security improvements and the return on investment timeline. The board is very focused on both of those. Thank you, Samuel — this has been very helpful.", {
+    t("cm-17", "ai", "Yes — please emphasise the security improvements and the return on investment timeline. The board is very focused on both of those. Thank you, Alex — this has been very helpful.", {
       delayMs: 1000,
       suggestedReplies: [
         "Noted! I'll make sure security and ROI are front and centre in the summary. Thank you for your time, Emma. I'll speak to you on Friday.",
@@ -913,7 +913,7 @@ const customermeeting: ConversationScenario = {
       ],
     }),
     t("cm-18", "user", "Noted — I'll make sure those are the headline points. Thank you for your time, Emma. I look forward to hearing back after the board meeting. Have a great rest of your day!"),
-    t("cm-19", "ai", "Thank you, Samuel. You too. Goodbye!", { delayMs: 600 }),
+    t("cm-19", "ai", "Thank you, Alex. You too. Goodbye!", { delayMs: 600 }),
   ],
 }
 
@@ -934,7 +934,7 @@ const simpleplain: ConversationScenario = {
   tags: ["communication", "plain english", "windows", "non-technical", "upgrade", "security"],
   xpReward: 80,
   script: [
-    t("sp-1", "ai", "Samuel, I got your email about upgrading all our computers to 'Windows 11'. I honestly don't understand why this is urgent. The computers work perfectly fine as they are. Why do we need to spend money on this?", {
+    t("sp-1", "ai", "Alex, I got your email about upgrading all our computers to 'Windows 11'. I honestly don't understand why this is urgent. The computers work perfectly fine as they are. Why do we need to spend money on this?", {
       delayMs: 1100,
       suggestedReplies: [
         "I completely understand, Robert. Let me explain it in simple terms — it's mainly about security and the fact that Microsoft is stopping support for the current version.",
@@ -1010,7 +1010,7 @@ const simpleplain: ConversationScenario = {
       ],
     }),
     t("sp-12", "user", "We'd like to start with the Finance department in the first two weeks of next month, which I believe avoids your month-end closing period. I'll send you a proposed schedule and you can flag any dates that don't work. We have until October, so there's no rush — but I'd like to complete Finance by the end of next month."),
-    t("sp-13", "ai", "Next month works well for us. October is indeed our quietest period before year-end. Thank you for explaining all of this clearly, Samuel. I now understand why it's necessary and I'll let my team know.", {
+    t("sp-13", "ai", "Next month works well for us. October is indeed our quietest period before year-end. Thank you for explaining all of this clearly, Alex. I now understand why it's necessary and I'll let my team know.", {
       delayMs: 1000,
       suggestedReplies: [
         "Excellent! I'll send the schedule over this week. Please don't hesitate to call if any further questions come up.",
@@ -1019,7 +1019,7 @@ const simpleplain: ConversationScenario = {
       ],
     }),
     t("sp-14", "user", "Wonderful! I'll prepare a simple one-page summary that you can share with your team — plain English, no jargon, just what's happening, when, and what they need to do. I'll also include the schedule. Expect that by the end of this week."),
-    t("sp-15", "ai", "That would be perfect. Thank you very much, Samuel. I appreciate you taking the time to explain it so clearly. Goodbye!", {
+    t("sp-15", "ai", "That would be perfect. Thank you very much, Alex. I appreciate you taking the time to explain it so clearly. Goodbye!", {
       delayMs: 900,
       vocabularyHighlights: [
         { word: "year-end", phonetic: "/jɪər end/", definition: "The end of a company's financial year, often a busy period for finance and accounting teams." },
